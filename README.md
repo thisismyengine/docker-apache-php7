@@ -11,17 +11,17 @@ Tags
 Usage
 ------
 
+Build image:
 ```
-$ docker run -d -P bylexus/apache-php7
+$ docker build -t thisismyengine/docker-apache-php7 git://github.com/thisismyengine/docker-apache-php7.git
 ```
 
-With all the options:
-
+Run newly created image in a container:
 ```bash
-$ docker run -d -p 8080:80 \
-    -v /home/user/webroot:/var/www \
+$ docker run -d -p 80:80 \
+    -v /Volumes/Data/Server:/var/www \
     -e PHP_ERROR_REPORTING='E_ALL & ~E_STRICT' \
-    bylexus/apache-php7
+    --name apache thisismyengine/docker-apache-php7
 ```
 
 * `-v [local path]:/var/www` maps the container's webroot to a local path
@@ -49,6 +49,7 @@ Installed packages
 * php7.0-mysql
 * php7.0-pgsql
 * php7.0-sqlite3
+* php7.0-curl
 * php7.0-xml
 * php7.0-xsl
 * php7.0-zip
