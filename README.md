@@ -1,12 +1,5 @@
 apache-php7
-===================================
-
-A Docker image based on Ubuntu, serving PHP 7 running as Apache Module. Useful for Web developers in need for a fixed PHP version. In addition, the `error_reporting` setting in php.ini is configurable per container via environment variable.
-
-Tags
------
-
-* latest: Ubuntu 16.04 (LTS), Apache 2.4, PHP 7.0.4 with support for setting `error_reporting`
+===========
 
 Usage
 ------
@@ -21,19 +14,13 @@ Run newly created image in a container:
 $ docker run -d -p 80:80 \
     -v /Volumes/Data/Server:/var/www \
     -e PHP_ERROR_REPORTING='E_ALL & ~E_STRICT' \
-    --name apache thisismyengine/docker-apache-php7
+    --name apache-php7 --restart always \
+    thisismyengine/docker-apache-php7
 ```
 
 * `-v [local path]:/var/www` maps the container's webroot to a local path
 * `-p [local port]:80` maps a local port to the container's HTTP port 80
 * `-e PHP_ERROR_REPORTING=[php error_reporting settings]` sets the value of `error_reporting` in the php.ini files.
-
-### Access apache logs
-
-Apache is configured to log both access and error log to STDOUT. So you can simply use `docker logs` to get the log output:
-
-`docker logs -f container-id`
-
 
 Installed packages
 -------------------
