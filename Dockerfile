@@ -21,7 +21,8 @@ RUN apt-get update && \
       php7.0-xml \
       php7.0-xsl \
       php7.0-zip \
-      php7.0-soap
+      php7.0-soap \
+      php7.0-mcrypt
 
 COPY apache_default /etc/apache2/sites-available/000-default.conf
 COPY run /usr/local/bin/run

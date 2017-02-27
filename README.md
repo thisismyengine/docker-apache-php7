@@ -41,6 +41,7 @@ Installed packages
 * php7.0-xsl
 * php7.0-zip
 * php7.0-soap
+* php7.0-mcrypt
 
 Default Configurations
 ----------------------
