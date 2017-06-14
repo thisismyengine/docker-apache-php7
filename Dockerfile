@@ -7,6 +7,8 @@ RUN apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install -y \
       apache2 \
+      nano \
+      cron \
       php7.0 \
       php7.0-cli \
       libapache2-mod-php7.0 \
@@ -24,8 +26,13 @@ RUN apt-get update && \
       php7.0-soap \
       php7.0-mcrypt
 
+COPY cron /tmp/cron
 COPY apache_default /etc/apache2/sites-available/000-default.conf
 COPY run /usr/local/bin/run
+
+RUN export EDITOR="/usr/bin/nano"
+RUN crontab
+RUN cat /tmp/cron | crontab
 RUN chmod +x /usr/local/bin/run
 RUN a2enmod rewrite
 RUN a2enmod ssl

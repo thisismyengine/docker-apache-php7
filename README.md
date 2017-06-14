@@ -26,6 +26,8 @@ Installed packages
 -------------------
 * Ubuntu Server 16.04, based on ubuntu docker image
 * apache2
+* nano
+* cron
 * php7.0
 * php7.0-cli
 * libapache2-mod-php7.0
