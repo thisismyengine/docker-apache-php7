@@ -36,6 +36,7 @@ RUN cat /tmp/cron | crontab
 RUN chmod +x /usr/local/bin/run
 RUN a2enmod rewrite
 RUN a2enmod ssl
+RUN a2enmod headers
 
 EXPOSE 80
 CMD ["/usr/local/bin/run"]
