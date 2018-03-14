@@ -12,7 +12,7 @@ $ docker build -t thisismyengine/docker-apache-php7 git://github.com/thisismyeng
 Run newly created image in a container:
 ```bash
 $ docker run -d -p 80:80 \
-    -v /Volumes/Data/Server:/var/www \
+    -v "$PWD":/var/www \
     -e PHP_ERROR_REPORTING='E_ALL & ~E_STRICT' \
     --name apache-php7 --restart always \
     thisismyengine/docker-apache-php7
